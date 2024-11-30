@@ -1,0 +1,13 @@
+.signin {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  color: white;
+  background-color: green;
+}
+
+input {
+  margin: 5px;
+}
