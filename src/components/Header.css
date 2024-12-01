@@ -1,0 +1,15 @@
+.header {
+  display: flex;
+  border: 1px solid lightgray;
+  padding: 5px 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header button {
+  cursor: pointer;
+  background-color: lightblue;
+  padding: 5px;
+  font-size: 18px;
+  border-radius: 5px;
+}
