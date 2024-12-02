@@ -7,11 +7,7 @@
 }
 
 .signup_form {
-<<<<<<< HEAD
   margin-top: 10px;
-=======
-  margin-top: 20px;
->>>>>>> auth
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -35,22 +31,14 @@
   border-radius: 5px;
 }
 
-<<<<<<< HEAD
 .signup_container {
-=======
-.signup_container p {
->>>>>>> auth
   margin-top: 15px;
   font-size: 16px;
 }
 
 .signup_container p a {
   text-decoration: none;
-<<<<<<< HEAD
   color: green;
-=======
-  color: rgb(12, 83, 12);
->>>>>>> auth
   font-size: 18px;
   font-weight: bold;
 }

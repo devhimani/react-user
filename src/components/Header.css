@@ -7,17 +7,9 @@
 }
 
 .header button {
-<<<<<<< HEAD
   cursor: pointer;
   background-color: lightblue;
   padding: 5px;
   font-size: 18px;
   border-radius: 5px;
-=======
-  background-color: lightblue;
-  padding: 5px;
-  font-size: 16px;
-  border-radius: 5px;
-  cursor: pointer;
->>>>>>> auth
 }
