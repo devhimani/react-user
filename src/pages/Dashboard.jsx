@@ -4,6 +4,10 @@ const Dashboard = () => {
   return (
     <div>
       <Header />
+<<<<<<< HEAD
+=======
+
+>>>>>>> auth
       <Link to="/">Home</Link>
       <Link to="/sign-in">SignIn</Link>
       <Link to="/sign-up">SignUp</Link>
