@@ -2,16 +2,16 @@ import { Link } from "react-router-dom";
 import "./Sign-in.css";
 const SignIn = () => {
   return (
-    <div>
-      <Link to="/">Home</Link>
-      <Link to="/dashboard">Dashboard</Link>
-      <Link to="/sign-up">SignUp</Link>
+    <div className="signin_container">
       <h1> Sign-in </h1>
-      <div className="signin">
+      <form className="signin_form">
         <input type="text" placeholder="email" />
         <input type="text" placeholder="password" />
-        <button>Sign In</button>
-      </div>
+        <button type="submit">Sign In</button>
+      </form>
+      <p>
+        Do not have an acoount? <Link to={"/sign-up"}> Sign Up</Link>
+      </p>
     </div>
   );
 };

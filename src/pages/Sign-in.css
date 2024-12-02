@@ -1,13 +1,42 @@
-.signin {
+.signin_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* height: 100vh; */
+}
+
+.signin_form {
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
 }
 
-.signin button {
+.signin_form button {
+  margin-top: 10px;
   color: white;
   background-color: green;
+  padding: 5px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  outline: none;
 }
 
-input {
-  margin: 5px;
+.signin_form input {
+  padding: 5px;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.signin_container {
+  margin-top: 15px;
+  font-size: 16px;
+}
+
+.signin_container p a {
+  text-decoration: none;
+  color: green;
+  font-size: 18px;
+  font-weight: bold;
 }
