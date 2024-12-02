@@ -1,8 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Sign-up.css";
 import { useState } from "react";
+import { useContext } from "react";
+import { authContext } from "../store/authContext";
 
 const SignUp = () => {
+  const navigate = useNavigate();
+  const { users, setUsers } = useContext(authContext);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -30,6 +34,16 @@ const SignUp = () => {
     if (formData.password !== formData.confirmpassword) {
       setError("Password didn't match");
     }
+
+    // checking if user already exist
+    const isUserExist = users.some((user) => user.email === formData.email);
+    if (isUserExist) {
+      setError("User already exist");
+      return;
+    }
+
+    setUsers((prev) => [...prev, formData]);
+    navigate("/sign-in");
   };
 
   return (
@@ -38,9 +52,9 @@ const SignUp = () => {
       <form onSubmit={handleSignUp} className="signup_form">
         <input type="text" placeholder="name" name="name" value={formData.name} onChange={handlechange} />
         <input type="text" placeholder="email" name="email" value={formData.email} onChange={handlechange} />
-        <input type="text" placeholder="password" name="password" value={formData.password} onChange={handlechange} />
+        <input type="password" placeholder="password" name="password" value={formData.password} onChange={handlechange} />
         <input
-          type="text"
+          type="password"
           placeholder="confirm password"
           name="confirmpassword"
           value={formData.confirmpassword}
