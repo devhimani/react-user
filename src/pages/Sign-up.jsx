@@ -5,8 +5,6 @@ import { useContext } from "react";
 import { authContext } from "../store/authContext";
 
 const SignUp = () => {
-  const { users, setUsers } = useContext(authContext);
-  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -15,6 +13,9 @@ const SignUp = () => {
   });
 
   const [error, setError] = useState("");
+
+  const { users, setUsers } = useContext(authContext);
+  const navigate = useNavigate();
 
   const handlechange = (e) => {
     setError("");
@@ -48,7 +49,7 @@ const SignUp = () => {
     }
     setUsers((prev) => [...prev, formData]);
     navigate("/sign-in");
-    // console.log(isUserExist, formData, users); // to check flow of data in console.
+    console.log(isUserExist, formData, users); // to check flow of data in console.
   };
 
   return (

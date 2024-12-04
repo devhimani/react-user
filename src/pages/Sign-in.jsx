@@ -1,6 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Sign-in.css";
 import { useState } from "react";
+import { useContext } from "react";
+import { authContext } from "../store/authContext";
 const SignIn = () => {
   const [formData, setFormData] = useState({
     email: "",
@@ -9,6 +11,9 @@ const SignIn = () => {
 
   const [error, setError] = useState("");
 
+  const { users, setCurrentUser } = useContext(authContext);
+  const navigate = useNavigate();
+
   const handleSignin = (e) => {
     e.preventDefault();
 
@@ -16,6 +21,21 @@ const SignIn = () => {
       setError("All fields are required");
       return;
     }
+
+    const dbUser = users.find((user) => user.email == formData.email);
+    if (!dbUser) {
+      setCurrentUser("user not found");
+      return;
+    }
+
+    if (dbUser.password !== formData.password) {
+      setError("wrong password");
+      return;
+    }
+
+    setCurrentUser(dbUser);
+    navigate("/dashboard");
+    console.log(dbUser, formData, users); // to check flow of data in Signin.js
   };
 
   const handleChange = (e) => {
@@ -29,14 +49,14 @@ const SignIn = () => {
       <h1> Sign-in </h1>
       <form onSubmit={handleSignin} className="signin_form">
         <input
-          type="text"
+          type="email"
           placeholder="email"
           name="email"
           value={formData.email}
           onChange={handleChange}
         />
         <input
-          type="text"
+          type="password"
           placeholder="password"
           name="password"
           value={formData.password}
