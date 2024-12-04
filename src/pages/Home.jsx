@@ -1,15 +1,38 @@
-import { useContext } from "react";
+import { useState } from "react";
 import Header from "../components/Header";
-import { authContext } from "../store/authContext";
+import { useEffect } from "react";
 
 const Home = () => {
-  const data = useContext(authContext);
+  const [counter, setCounter] = useState(0);
 
-  console.log(data);
+  const handleAdd = () => {
+    setCounter(counter + 1);
+  };
+
+  const handleDel = () => {
+    setCounter(counter - 1);
+  };
+
+  useEffect(() => {
+    setCounter(5);
+  }, []);
+
+  useEffect(() => {
+    console.log("updated");
+  }, [counter]);
+
   return (
     <div>
       <Header />
-      <h1> Hello home </h1>
+      <h1> Counter </h1>
+
+      <button onClick={handleAdd}>+</button>
+      {counter}
+      <button onClick={handleDel}>-</button>
+
+      <br />
+
+      <button onClick={() => setCounter(counter + 5)}>Increase by 5</button>
     </div>
   );
 };
