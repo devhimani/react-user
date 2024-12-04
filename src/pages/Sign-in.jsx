@@ -35,6 +35,7 @@ const SignIn = () => {
     }
 
     setCurrentUser(dbUser);
+    localStorage.setItem("currentUser", JSON.stringify(dbUser));
     navigate("/dashboard");
   };
 
