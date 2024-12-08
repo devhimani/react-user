@@ -39,6 +39,7 @@ const SignUp = () => {
 
     if (formData.password !== formData.confirmpassword) {
       setError("Password didn't match");
+      return;
     }
 
     // checking if user is already exist
@@ -47,6 +48,7 @@ const SignUp = () => {
       setError("user already exist");
       return;
     }
+
     setUsers((prev) => [...prev, formData]);
     navigate("/sign-in");
     console.log(isUserExist, formData, users); // to check flow of data in console.

@@ -22,9 +22,9 @@ const SignIn = () => {
       return;
     }
 
-    const dbUser = users.find((user) => user.email == formData.email);
+    const dbUser = users.find((user) => user.email === formData.email);
     if (!dbUser) {
-      setCurrentUser("user not found");
+      setError("user not found");
       return;
     }
 
@@ -34,6 +34,7 @@ const SignIn = () => {
     }
 
     setCurrentUser(dbUser);
+    localStorage.setItem("currentUser", JSON.stringify(dbUser));
     navigate("/dashboard");
     console.log(dbUser, formData, users); // to check flow of data in Signin.js
   };
